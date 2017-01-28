@@ -1,0 +1,27 @@
+{
+  "name": "mchack",
+  "version": "1.0.0",
+  "description": "McHacks 2017 submission for turning spoken phrases into Bash commands",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f-jiang/voice-commands.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/f-jiang/voice-commands/issues"
+  },
+  "homepage": "https://github.com/f-jiang/voice-commands#readme",
+  "dependencies": {
+    "electron": "^1.4.15",
+    "path": "^0.12.7",
+    "pretty-bytes": "^2.0.1"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "^0.35.2"
+  }
+}
