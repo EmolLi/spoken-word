@@ -1,0 +1,19 @@
+#!/bin/bash
+
+APPS_DIR=/usr/share/applications/
+
+ICON_DIRS=($HOME/.icons/ $XDG_DATA_DIRS/icons/ /usr/share/pixmaps/)
+
+prop=Icon
+icon_path=$(grep "^$prop=" /usr/share/applications/$1 | head -1 | sed "s/^$prop=//" | sed 's/%.//')
+
+# if blank or simply a file name, look in icon_dirs
+if [[ -z "$icon_path" ]] || [[ "$icon_path" != "*.png" && "$icon_path" != "*.xpm" && "$icon_path" != "*.svg" ]]
+then
+    echo bad
+else
+    echo good
+fi
+
+echo "$icon_path"
+

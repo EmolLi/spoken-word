@@ -1,0 +1,6 @@
+#!/bin/bash
+
+APPS_DIR=/usr/share/applications/
+
+prop=Name
+grep "^$prop=" /usr/share/applications/$1 | head -1 | sed "s/^$prop=//" | sed 's/%.//'
