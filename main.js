@@ -1,4 +1,4 @@
-const {Menu, app, BrowserWindow} = require('electron')
+const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 let fs = require('fs');
@@ -20,6 +20,10 @@ function createWindow () {
     protocol: 'file:',
     slashes: true
   }))
+
+  const ses = win.webContents.session
+  ses.cookies = require("./Data.js");
+
 
   // Open the DevTools.
   win.webContents.openDevTools()
