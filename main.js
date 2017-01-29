@@ -2,7 +2,7 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 let fs = require('fs');
-let appDataJson = "/home/emol/cs/mchack/appData.json";
+let appDataJson = "./appData.json";
 var loadAppData = JSON.parse(fs.readFileSync(appDataJson, 'utf8'));
 console.log(loadAppData);
 
