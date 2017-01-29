@@ -17,10 +17,15 @@ with sr.Microphone() as source:
     audio = r.listen(source)
 try:
     print(r.recognize_google(audio)) #speech_recognition package
+#    config = {'appId': app_id, 'appKey': app_key, 'id': uid}
+#    info = "\nTransfer-Encoding:chunked\nContent-Type:audio/x-pcm;bit=16;rate=8000\nAccept: text/plain\nAccept-Language: en-US"
+#    msg = requests.post("https://dictation.nuancemobility.net/NMDPAsrCmdServlet/dictation",
+#            params = OrderedDict(sorted(config.items(), key=lambda t:t[0])), data=info, files=audio)
+#    print(msg.text)
 except:
     config = {'appId': app_id, 'appKey': app_key, 'id': uid, 'voice': "Samantha"}
     info = "\nContent-Type: text/plain\nAccept: audio/x-wav;codec=pcm;bit=16;rate=8000\n" + "I'm sorry, could you repeat that?"
-    msg = requests.post("https://tts.nuancemobility.net:442/NMDPTTSCmdServlet/tts", 
+    msg = requests.post("https://tts.nuancemobility.net:442/NMDPTTSCmdServlet/tts",
         params = OrderedDict(sorted(config.items(), key=lambda t:t[0])), data = info)
     wf = wave.open(msg.content, 'rb')
     data = wf.readframes(CHUNK)
