@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Setting</title>
+    <link rel="stylesheet" href="./css/form.css">
 </head>
 <body>
-    <div id="commands">
+    <div class="commands">
         <label for="Open">
             <span>Command for open</span><input type="text" id="open" required="false" />
         </label>
@@ -22,7 +23,7 @@
             let app = query.split('=')[1];
 
             $("#open").val(DATA.getdata()[app]["command"]);
-            
+
             $("#done").click(function () {
                 let command = $("#open").val();
                 DATA.update(app, command);
@@ -32,8 +33,6 @@
 
         });
     </script>
-
-
 
 
 </body>

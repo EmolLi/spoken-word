@@ -1,1 +1,1 @@
-{"Firefox":{"icon":"./icon/firefox.png","command":"fsdf"},"GoogleChrome":{"icon":"./icon/googleChrome.png","command":"fdsff"},"Excel":{"icon":"./icon/excel.png","command":"fexfd"}}
+{"Firefox":{"icon":"./icon/firefox.png","command":"Firefox"},"GoogleChrome":{"icon":"./icon/googleChrome.png","command":"Google Chrome"},"Excel":{"icon":"./icon/excel.png","command":"Excel"}}

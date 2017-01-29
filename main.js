@@ -2,9 +2,6 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 let fs = require('fs');
-let appDataJson = "/home/emol/cs/mchack/appData.json";
-var loadAppData = JSON.parse(fs.readFileSync(appDataJson, 'utf8'));
-console.log(loadAppData);
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.

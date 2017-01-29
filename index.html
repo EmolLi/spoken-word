@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Siri For Linux</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/jquery.flipster.min.css">
   </head>
   <body>
     <div class="menu">
@@ -13,10 +14,10 @@
       </ul>
     </div>
 
-    <div class="main">
-      <ul id = "grid">
-      </ul>
-    </div>
+      <div class="flipster">
+        <ul>
+        </ul>
+      </div>
     <!--
     <h1>Hello World!</h1>
     We are using node <script>document.write(process.versions.node)</script>,
@@ -24,6 +25,7 @@
     and Electron <script>document.write(process.versions.electron)</script>.-->
     <script>window.$ = window.jQuery = require('./js/jquery.min.js');
     </script>
+    <script src="./js/jquery.flipster.min.js"></script>
     <script>
       $(function(){
 
@@ -31,17 +33,32 @@
 
           let DATA = require('./Data');
           //console.log(loadAppData);
-          var items = [];
+          //var items = [];
+          let ul = $('.flipster ul');
+          console.log(ul);
           jQuery.each(DATA.getdata(), function(key, value){
+              var li = $('<li><img /><a target="_blank"></a></li>');
               if (value.hasOwnProperty("icon")){
-                  items.push('<li><img id = ' + key + ' src="'+ value["icon"] +'"></li>');
+                  li.find('a')
+                      .attr('href',"#")
+                      .text(key);
+
+                  li.find('img')
+                      .attr('src', value["icon"])
+                      .attr('id', key);
+            //      items.push('<li><img class="icon" id = ' + key + ' src="'+ value["icon"] +'"></li>');
               }
+              li.appendTo(ul);
+              console.log(li);
           });
-          $('#grid').append.apply($('#grid'), items);
+          //$('#grid').append.apply($('#grid'), items);
+          $('.flipster').flipster({
+              style: 'coverflow'
+          });
 
           $('img').click(function () {
             let id = $(this).attr('id');
-            let prompt = window.open("./Prompt.html?app=" + id);
+            let prompt = window.open("./Prompt.html?app=" + id, "Setting", "width=450,height=200");
             prompt.app = id;
           })
 
