@@ -3,7 +3,7 @@
  */
 let DATA = module.exports = {};
 let fs = require('fs');
-let appDataJson = "/home/emol/cs/mchack/appData.json";
+let appDataJson = "./appData.json";
 
 let data = JSON.parse(fs.readFileSync(appDataJson, 'utf8'));
 
