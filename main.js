@@ -2,10 +2,30 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 let fs = require('fs');
+let shell = require('shelljs');
+let DATA = require('./Data.js');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
+
+function prepString(str) {
+  return str.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+}
+
+function listen() {
+  input = shell.exec('python3 audio-input.py', {silent: true})['stdout'].trim('\n');
+  
+  for (program in DATA.getData()) {
+    // make all lowercase and remove punctuation
+    if (prepString(input) === prepString(program.phrase)) {
+      shell.exec(program.command, {silent: true, async: true});
+      break;
+    }
+  }
+
+  listen();
+}
 
 function createWindow () {
   // Create the browser window.
@@ -17,8 +37,6 @@ function createWindow () {
     protocol: 'file:',
     slashes: true
   }))
-
-
 
   // Open the DevTools.
   //win.webContents.openDevTools()
