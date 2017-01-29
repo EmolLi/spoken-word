@@ -4,8 +4,10 @@ $(function(){
 
     // Display some statistics about this computer, using node's os module.
 
+    var json = "https://raw.githubusercontent.com/EmolLi/Leetcode/b95f25893110f56b6ef1c86ec432084f8f4adf30/appData.json";
     var os = require('os');
     var prettyBytes = require('pretty-bytes');
+    //let appData = require('../appData.json');
 
     $('.stats').append('Number of cpu cores: <span>' + os.cpus().length + '</span>');
     $('.stats').append('Free memory: <span>' + prettyBytes(os.freemem())+ '</span>');
@@ -18,11 +20,31 @@ $(function(){
     // Fetch the recent posts on Tutorialzine.
 
     var ul = $('.flipster ul');
-
+    //let a = 1;
+    //alert(a);
+/**
+    let appData = {"Firefox": "../icon/firefox.png",
+                    "Google Chrome": "../icon/googleChrome.png",
+                    "Excel": "../icon/excel.png"};
+**/
     // The same-origin security policy doesn't apply to electron, so we can
     // send ajax request to other sites. Let's fetch Tutorialzine's rss feed:
 
-    $.get('http://feeds.feedburner.com/Tutorialzine', function(response){
+    $.getJSON( json, {
+                        format: "json"
+    })
+    .done(function( data ) {
+
+        $.each( data.items, function( i, item ) {
+            //$( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+            //if ( i === 3 ) {
+              //  return false;
+            //}
+        });
+        alert("He");
+    });
+/**
+    $.get("http://feeds.feedburner.com/Tutorialzine", function(response){
 
         var rss = $(response);
 
@@ -71,6 +93,25 @@ $(function(){
 
         });
 
-    });
+    });**/
 
 });
+
+/**
+ *
+ * @param appData {object} cmd/ app data. key is the name of the app/cmd, value is the icon, (link to pic, string) . If cmd, logo is just is just cmd picture, whatever
+ *//**
+function populateflipster(appData) {
+    for (let app of appData){
+        let li = $('<li><img /><a target="_blank"></a></li>');
+        li.find('a')
+            .attr('href', " ")  //maybe we dont need this
+            .text(app);
+        li.find('img').attr('src', appData[app]);
+        li.appendTo(ul);
+    }
+
+}**/
+
+
+//let a = {Firefox: "../icon/firefox.png", Google Chrome: "../icon/googleChrome.png", Excel: "../icon/excel.png"};

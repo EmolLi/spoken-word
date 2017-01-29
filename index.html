@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Siri For Linux</title>
+    <link rel="stylesheet" href="./css/styles.css">
+  </head>
+  <body>
+    <div class="menu">
+      <ul>
+        <li><a href="">Applications</a> </li>
+        <li><a href="./view/Commands.html">Shell Commands</a> </li>
+      </ul>
+    </div>
 
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
+    <div class="main">
+      <ul id = "grid">
+      </ul>
+    </div>
+    <!--
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.-->
+    <script>window.$ = window.jQuery = require('./js/jquery.min.js');
+    </script>
+    <script>
+      $(function(){
+        let fs = require('fs');
+        let appDataJson = "/home/emol/cs/mchack/appData.json";
+        var loadAppData = JSON.parse(fs.readFileSync(appDataJson, 'utf8'));
+        console.log(loadAppData);
+        var items = [];
+        jQuery.each(loadAppData, function(key, value){
+          items.push('<li><a href="#"><img src="'+ value +'"></a></li>');
+        });
+        $('#grid').append.apply($('#grid'), items);
+      })
 
- <title>Siri For Linux</title>
-
- <link rel="stylesheet" href="./css/jquery.flipster.min.css">
- <link rel="stylesheet" href="./css/styles.css">
-
-</head>
-<body>
-
-<div class="flipster">
- <ul>
- </ul>
-</div>
-
-<p class="stats"></p>
-
-<script>window.$ = window.jQuery = require('./js/jquery.min.js');</script>
-<script src="./js/jquery.flipster.min.js"></script>
-<script src="./js/script.js"></script>
-</body>
+    </script>
+  </body>
 </html>
