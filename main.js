@@ -21,8 +21,6 @@ function createWindow () {
     slashes: true
   }))
 
-  const ses = win.webContents.session
-  ses.cookies = require("./Data.js");
 
 
   // Open the DevTools.

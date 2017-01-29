@@ -11,7 +11,7 @@ let data = JSON.parse(fs.readFileSync(appDataJson, 'utf8'));
 DATA.update = function (app, command){
     data[app]["command"] = command;
     //alert(data[app]["command"]);
-    //fs.writeFileSync(appDataJson, data.toJSON(), 'utf8');
+    fs.writeFileSync(appDataJson, JSON.stringify(data, 'utf8'));
 }
 
 DATA.getdata = function () {

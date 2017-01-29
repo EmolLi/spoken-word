@@ -26,7 +26,6 @@
             $("#done").click(function () {
                 let command = $("#open").val();
                 DATA.update(app, command);
-                DATA.show(app);
                 window.opener.href = './index.html';
                 close();
             })
