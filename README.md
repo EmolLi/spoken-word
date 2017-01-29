@@ -1,7 +1,7 @@
 # Spoken Word
 McHacks 2017 submission for turning spoken phrases into Bash commands
 
-Spoken Word is a Siri for Linux. It enables Linux users to control the operating system by voice.
+Spoken Word is an Electron-powered, cross-platform desktop application. Spoken Word is a Siri for Linux. It enables Linux users to control the operating system by voice. It uses the Python-based SpeechRecognition API to process voice input into terminal commands, which are executed using the Node.js module ShellJS. 
 
 Tech used:
 
