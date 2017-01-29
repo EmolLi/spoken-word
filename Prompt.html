@@ -22,11 +22,11 @@
             var query = location.search.substring(1)
             let app = query.split('=')[1];
 
-            $("#open").val(DATA.getdata()[app]["command"]);
+            $("#open").val(DATA.getdata()[app]["phrase"]);
 
             $("#done").click(function () {
-                let command = $("#open").val();
-                DATA.update(app, command);
+                let phrase = $("#open").val();
+                DATA.update(app, phrase);
                 window.opener.href = './index.html';
                 close();
             })

@@ -8,9 +8,9 @@ let appDataJson = "./appData.json";
 let data = JSON.parse(fs.readFileSync(appDataJson, 'utf8'));
 
 
-DATA.update = function (app, command){
-    data[app]["command"] = command;
-    //alert(data[app]["command"]);
+DATA.update = function (app, phrase){
+    data[app]["phrase"] = phrase;
+    //alert(data[app]["phrase"]);
     fs.writeFileSync(appDataJson, JSON.stringify(data, 'utf8'));
 }
 
@@ -23,5 +23,5 @@ DATA.save = function () {
 
 }
 DATA.show = function(app){
-    alert(data[app]["command"]);
+    alert(data[app]["phrase"]);
 }

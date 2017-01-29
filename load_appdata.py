@@ -34,5 +34,5 @@ for program in os.listdir(apps_dir):
 
         appdata[name] = {'icon': icon, 'command': exc}
 
-json.dump(appdata, open('appdata.json', 'w'), indent=4)
+json.dump(appdata, open('appData.json', 'w'), indent=4)
 
