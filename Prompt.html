@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Setting</title>
+    <link rel="stylesheet" href="./css/form.css">
 </head>
 <body>
-    <div id="commands">
+    <div class="commands">
         <label for="Open">
             <span>Command for open</span><input type="text" id="open" required="false" />
         </label>
@@ -21,19 +22,17 @@
             var query = location.search.substring(1)
             let app = query.split('=')[1];
 
-            $("#open").val(DATA.getdata()[app]["command"]);
-            
+            $("#open").val(DATA.getdata()[app]["phrase"]);
+
             $("#done").click(function () {
-                let command = $("#open").val();
-                DATA.update(app, command);
+                let phrase = $("#open").val();
+                DATA.update(app, phrase);
                 window.opener.href = './index.html';
                 close();
             })
 
         });
     </script>
-
-
 
 
 </body>
