@@ -3,7 +3,7 @@ const path = require('path')
 const url = require('url')
 let fs = require('fs');
 let shell = require('shelljs');
-let DATA = require('./Data.js);
+let DATA = require('./Data.js');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
