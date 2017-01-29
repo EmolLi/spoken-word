@@ -54,19 +54,38 @@ a, a:visited, a:hover{
 
 /* Stats */
 
-.stats{
+.search{
 	text-align: center;
 	margin-top: 80px;
 	color: #8C91A0;
 	font-size: 13px;
 }
 
-.stats span{
-	font-weight: bold;
-	color: #A2A9BD;
-	margin-right: 10px;
+.search input{
+	color: white;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #83A4C5;
+	width: 300px;
+	outline: none;
+	padding: 0px 0px 0px 0px;
+	font-style: italic;
 }
 
+.search button{
+	background: #576E86;
+	border: none;
+	padding: 8px 10px 8px 10px;
+	border-radius: 5px;
+	color: #A8BACE;
+}
+.commands button:hover{
+	background: #394D61;
+}
+
+.menu {
+	margin-bottom: 50px;
+}
 
 .menu ul {
 	list-style-type: none;

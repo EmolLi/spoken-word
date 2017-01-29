@@ -1,4 +1,6 @@
 html, body{
+    background: #14243d;
+    background: radial-gradient(ellipse at center, #14243d 0%,#030611 100%);
     width: 100%;
     height: 100%;
     margin: 0;
@@ -21,7 +23,6 @@ html, body{
     height: 77%;
     width: auto;
     font-size: 16px;
-    background: #495C70;
     padding: 30px 30px 15px 30px;
 }
 .commands button,
@@ -45,7 +46,7 @@ html, body{
 {
     background: transparent;
     border: none;
-    border-bottom: 1px dashed #83A4C5;
+    border-bottom: 1px solid #83A4C5;
     width: 200px;
     outline: none;
     padding: 0px 0px 0px 0px;

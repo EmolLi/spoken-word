@@ -18,6 +18,11 @@
         <ul>
         </ul>
       </div>
+
+    <div class="search">
+      <input type="test" />
+      <button type ="button" id = "search">Search</button>
+    </div>
     <!--
     <h1>Hello World!</h1>
     We are using node <script>document.write(process.versions.node)</script>,
@@ -39,13 +44,13 @@
           jQuery.each(DATA.getdata(), function(key, value){
               var li = $('<li><img /><a target="_blank"></a></li>');
               if (value.hasOwnProperty("icon")){
+                  li.attr('id', key);
                   li.find('a')
                       .attr('href',"#")
                       .text(key);
 
                   li.find('img')
                       .attr('src', value["icon"])
-                      .attr('id', key);
             //      items.push('<li><img class="icon" id = ' + key + ' src="'+ value["icon"] +'"></li>');
               }
               li.appendTo(ul);
@@ -56,10 +61,25 @@
               style: 'coverflow'
           });
 
-          $('img').click(function () {
+
+
+          $('li').click(function () {
             let id = $(this).attr('id');
             let prompt = window.open("./Prompt.html?app=" + id, "Setting", "width=450,height=200");
             prompt.app = id;
+          })
+
+
+          $('button').click(function () {
+              //$('.flipster').flipster('jump', 2);
+              let app = $('input').val();
+              if (DATA.getdata().hasOwnProperty(app)){
+                  //set focus
+                  $('.flipster').flipster('jump', $('#'+app));
+              }
+              else{
+                  alert("No app found!");
+              }
           })
 
       })
