@@ -1,5 +1,1 @@
-{
-	"Firefox": "./icon/firefox.png",
-	"Google Chrome": "./icon/googleChrome.png",
-	"Excel": "./icon/excel.png"
-}
+{"Firefox":{"icon":"./icon/firefox.png","command":"fsdf"},"GoogleChrome":{"icon":"./icon/googleChrome.png","command":"fdsff"},"Excel":{"icon":"./icon/excel.png","command":"fexfd"}}

@@ -1,4 +1,4 @@
-const {Menu, app, BrowserWindow} = require('electron')
+const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 let fs = require('fs');
@@ -20,6 +20,8 @@ function createWindow () {
     protocol: 'file:',
     slashes: true
   }))
+
+
 
   // Open the DevTools.
   win.webContents.openDevTools()

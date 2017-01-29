@@ -26,15 +26,25 @@
     </script>
     <script>
       $(function(){
-        let fs = require('fs');
-        let appDataJson = "/home/emol/cs/mchack/appData.json";
-        var loadAppData = JSON.parse(fs.readFileSync(appDataJson, 'utf8'));
-        console.log(loadAppData);
-        var items = [];
-        jQuery.each(loadAppData, function(key, value){
-          items.push('<li><a href="#"><img src="'+ value +'"></a></li>');
-        });
-        $('#grid').append.apply($('#grid'), items);
+
+          //console.log(cookies);
+
+          let DATA = require('./Data');
+          //console.log(loadAppData);
+          var items = [];
+          jQuery.each(DATA.getdata(), function(key, value){
+              if (value.hasOwnProperty("icon")){
+                  items.push('<li><img id = ' + key + ' src="'+ value["icon"] +'"></li>');
+              }
+          });
+          $('#grid').append.apply($('#grid'), items);
+
+          $('img').click(function () {
+            let id = $(this).attr('id');
+            let prompt = window.open("./Prompt.html?app=" + id);
+            prompt.app = id;
+          })
+
       })
 
     </script>

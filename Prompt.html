@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="commands">
+        <label for="Open">
+            <span>Command for open</span><input type="text" id="open" required="false" />
+        </label>
+        <button type="button" id ="done"> Change </button>
+    </div>
+
+
+    <script>window.$ = window.jQuery = require('./js/jquery.min.js');</script>
+    <script>
+        $(function(){
+            let DATA = require('./Data.js');
+            //get the app that is chosen by user
+            var query = location.search.substring(1)
+            let app = query.split('=')[1];
+
+            $("#open").val(DATA.getdata()[app]["command"]);
+            
+            $("#done").click(function () {
+                let command = $("#open").val();
+                DATA.update(app, command);
+                window.opener.href = './index.html';
+                close();
+            })
+
+        });
+    </script>
+
+
+
+
+</body>
+</html>
